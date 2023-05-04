@@ -1,8 +1,12 @@
+import { Footer, Header } from "./components";
+import AllRoutes from "./routes/AllRoutes";
 
 function App() {
   return (
-    <div className=" font-bold text-8xl">
-      hello world
+    <div className="">
+      <Header />
+      <AllRoutes />
+      <Footer />
     </div>
   );
 }
