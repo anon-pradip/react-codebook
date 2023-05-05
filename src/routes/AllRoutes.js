@@ -7,7 +7,7 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route path='/' element={<HomePage />} end />
-      <Route path='/productList' element={<ProductList />} />
+      <Route path='/products' element={<ProductList />} />
     </Routes>
   )
 }
