@@ -20,10 +20,6 @@ const ProductCard = ({ product }) => {
 
         <div className="flex items-center my-2">
           <Rating rating={rating} />
-          {/* <StarIcon height={20} width={20} className=' text-white fill-yellow-600' />
-          <StarIcon height={20} width={20} className=' text-white fill-yellow-600' />
-          <StarIcon height={20} width={20} className=' text-white fill-yellow-600' />
-          <StarIcon height={20} width={20} className=' text-white fill-yellow-600' /> */}
         </div>
 
         <p className="flex justify-between items-center">

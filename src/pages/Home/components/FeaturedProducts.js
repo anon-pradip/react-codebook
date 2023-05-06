@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ProductCard from '../../../components/Elements/ProductCard'
+import ProductCard from '../../../components/'
 
 const FeaturedProducts = () => {
 

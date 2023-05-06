@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CogIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserCircleIcon } from "@heroicons/react/24/outline"
 import { Link } from 'react-router-dom'
 
 import Logo from '../../assets/logo.png'
 
-
 const Header = () => {
+  const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")) || false)
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode))
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [darkMode])
+
   return (
     <header>
       <nav className="bg-white dark:bg-gray-900">
@@ -16,13 +26,13 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center space-x-2">
-            <CogIcon height={25} width={25} className=' text-gray-900 dark:text-white' />
-            <MagnifyingGlassIcon height={25} width={25} className=' text-gray-900 dark:text-white' />
-            <Link to="/cart" className=' relative'>
-              <p className=' absolute -top-2 left-3 px-1 text-sm rounded-full bg-yellow-300'>2</p>
+            <CogIcon height={25} width={25} className=' text-gray-900 dark:text-white hover:cursor-pointer' onClick={() => setDarkMode(!darkMode)} />
+            <MagnifyingGlassIcon height={25} width={25} className=' text-gray-900 dark:text-white hover:cursor-pointer' />
+            <Link to="/cart" className=' relative hover:cursor-pointer'>
+              <p className=' absolute -top-2 left-3 px-1 text-sm rounded-full bg-yellow-300 dark:text-slate-900'>2</p>
               <ShoppingCartIcon height={25} width={25} className=' text-gray-900 dark:text-white' />
             </Link>
-            <UserCircleIcon height={25} width={25} className=' text-gray-900 dark:text-white' />
+            <UserCircleIcon height={25} width={25} className=' text-gray-900 dark:text-white hover:cursor-pointer' />
           </div>
         </div>
       </nav>

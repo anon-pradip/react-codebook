@@ -10,7 +10,7 @@ const Hero = () => {
       </div>
       <div className='md:mt-9 text-center md:text-start'>
         <h1 className=' font-bold text-4xl py-4'>The Ultimate eBook Store</h1>
-        <p className=' text-black pb-6'>CodeBook is the World's most popular and authoritative source for computer science ebooks. Find rating and access to the newest books digitally.</p>
+        <p className=' pb-6'>CodeBook is the World's most popular and authoritative source for computer science ebooks. Find rating and access to the newest books digitally.</p>
 
         <Link to="/products" className=' px-4 py-2 bg-blue-800 text-white rounded-md'>
           Explore Books
