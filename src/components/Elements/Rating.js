@@ -10,10 +10,10 @@ const Rating = ({ rating }) => {
     <>
       {ratingArray.map((value, index) => (
         value ? (
-          <StarIcon height={20} width={20} className=' text-white fill-yellow-600' key={index} />
+          <StarIcon height={20} width={20} className=' fill-yellow-500 text-yellow-500' key={index} />
 
         ) : (
-          <StarIcon height={15} width={15} className=' text-yellow-500 fill-white' key={index} />
+          <StarIcon height={20} width={20} className='' key={index} />
         )
       ))}
     </>
