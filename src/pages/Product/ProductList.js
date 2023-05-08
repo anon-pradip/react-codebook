@@ -3,6 +3,7 @@ import { ProductCard } from '../../components'
 import Filterbar from './components/Filterbar'
 import { useLocation } from 'react-router-dom'
 import useTitle from '../../hooks/useTitle'
+import { useFilter } from '../../context/FilterContext'
 
 const ProductList = () => {
   const [show, setShow] = useState(false)
@@ -10,6 +11,9 @@ const ProductList = () => {
   const { search } = useLocation()
   const searchTerm = new URLSearchParams(search).get('q')
   useTitle("Explore eBooks Collection")
+
+  const { productList } = useFilter()
+  console.log(productList)
 
   useEffect(() => {
     async function fetchProducts() {
