@@ -3,9 +3,11 @@ import { CogIcon, MagnifyingGlassIcon, ShoppingCartIcon, UserCircleIcon } from "
 import { Link } from 'react-router-dom'
 
 import Logo from '../../assets/logo.png'
+import Search from '../Sections/Search'
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")) || false)
+  const [searchSection, setSearchSection] = useState(false)
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode))
@@ -27,7 +29,7 @@ const Header = () => {
 
           <div className="flex items-center space-x-2">
             <CogIcon height={25} width={25} className=' text-gray-900 dark:text-white hover:cursor-pointer' onClick={() => setDarkMode(!darkMode)} />
-            <MagnifyingGlassIcon height={25} width={25} className=' text-gray-900 dark:text-white hover:cursor-pointer' />
+            <MagnifyingGlassIcon height={25} width={25} className=' text-gray-900 dark:text-white hover:cursor-pointer' onClick={() => setSearchSection(!searchSection)} />
             <Link to="/cart" className=' relative hover:cursor-pointer'>
               <p className=' absolute -top-2 left-3 px-1 text-sm rounded-full bg-yellow-300 dark:text-slate-900'>2</p>
               <ShoppingCartIcon height={25} width={25} className=' text-gray-900 dark:text-white' />
@@ -36,6 +38,8 @@ const Header = () => {
           </div>
         </div>
       </nav>
+      {searchSection && <Search searchSection={searchSection} setSearchSection={setSearchSection} />}
+
     </header>
   )
 }

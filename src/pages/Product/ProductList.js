@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { ProductCard } from '../../components'
 import Filterbar from './components/Filterbar'
+import { useLocation } from 'react-router-dom'
 
 const ProductList = () => {
   const [show, setShow] = useState(false)
   const [products, setProducts] = useState([])
+  const { search } = useLocation()
+  console.log(search)
+  const searchTerm = new URLSearchParams(search).get('q')
+  console.log(searchTerm)
 
   useEffect(() => {
     async function fetchProducts() {
-      const response = await fetch("http://localhost:8000/products")
+      const response = await fetch(`http://localhost:8000/products?name_like=${searchTerm ? searchTerm : ""}`)
       const data = await response.json();
       setProducts(data)
     }
     fetchProducts()
   }, [])
   return (
-    <main>
+    <main className=' min-h-screen'>
       <section className="my-5 px-4">
         <div className="my-5 flex justify-between">
           <span className="text-2xl font-semibold dark:text-slate-100 mb-5">All eBooks ({products.length})</span>
