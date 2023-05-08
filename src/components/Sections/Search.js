@@ -5,13 +5,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Search = ({ searchSection, setSearchSection }) => {
   const searchRef = useRef(null);
   const navigate = useNavigate();
-  const { pathname } = useLocation()
 
-  // useEffect(() => {
-  //   if (searchSection && searchRef.current) {
-  //     searchRef.current.focus();
-  //   }
-  // }, [searchSection]);
+  useEffect(() => {
+    if (searchSection && searchRef.current) {
+      searchRef.current.focus();
+    }
+  }, [searchSection]);
 
   const handleSearch = (e) => {
     e.preventDefault();

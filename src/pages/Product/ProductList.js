@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { ProductCard } from '../../components'
 import Filterbar from './components/Filterbar'
 import { useLocation } from 'react-router-dom'
+import useTitle from '../../hooks/useTitle'
 
 const ProductList = () => {
   const [show, setShow] = useState(false)
   const [products, setProducts] = useState([])
   const { search } = useLocation()
-  console.log(search)
   const searchTerm = new URLSearchParams(search).get('q')
-  console.log(searchTerm)
+  useTitle("Explore eBooks Collection")
 
   useEffect(() => {
     async function fetchProducts() {
@@ -18,7 +18,7 @@ const ProductList = () => {
       setProducts(data)
     }
     fetchProducts()
-  }, [])
+  }, [searchTerm])
   return (
     <main className=' min-h-screen'>
       <section className="my-5 px-4">
